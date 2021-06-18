@@ -62,9 +62,14 @@ const zooAnimals = [
   displayNames will be an array of strings, and each string should follow this pattern: "name: {name}, scientific: {scientific name}"
   */
 
-  function animalNames(/*Your Code Here*/){
-    /*Your Code Here*/
-  }
+  function animalNames(array){
+    let displayNames = [];
+    array.forEach(function(item) {
+      displayNames.push(`name: ${item.animal_name}, scientific: ${item.scientific_name}`)
+      
+  });
+  return displayNames;
+}
   
 
   /* 🦁🦁🦁 Request 2: .map() 🦁🦁🦁
@@ -73,8 +78,9 @@ const zooAnimals = [
   For example: ['jackal, asiatic', .....]
   */
 
-  function lowerCaseNames(/*Your Code Here*/){
-    /*Your Code Here*/
+  function lowerCaseNames(array){
+   const newArray = array.map(item => item.animal_name.toLowerCase());
+   return newArray;
   }
   
   
@@ -83,8 +89,9 @@ const zooAnimals = [
   Using lowPopulationAnimals use .filter() to create a new array of objects which contains only the animals with a population of less than 5.
   */
 
-  function lowPopulationAnimals(/*Your Code Here*/){
-    /*Your Code Here*/
+  function lowPopulationAnimals(array){
+    const newLowPop = array.filter(item => item.population < 5);
+    return newLowPop;
   }
   
 
@@ -94,8 +101,11 @@ const zooAnimals = [
   Remember the reduce method takes two arguments: a callback (which itself takes two args - the accumulator and the item), and an initial value for the count.
   */
 
-  function USApop(/*Your Code Here*/){
-    /*Your Code Here*/
+  function USApop(array){
+    const zooPop = array.reduce((acc, item) => {
+      return acc + item.population;
+    }, 0)
+    return zooPop;
   }
   
   
